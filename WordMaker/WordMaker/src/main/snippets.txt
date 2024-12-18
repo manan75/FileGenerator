@@ -1,0 +1,17 @@
+String path = "C:\\Users\\Manan\\Desktop\\FileGenerator\\india.docx";
+        XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(path)));
+
+        XWPFParagraph para = doc.createParagraph();
+        XWPFRun run = para.createRun();
+        run.setText("cool");
+        run.setBold(true);
+        run.setFontSize(14);
+        run.setFontFamily("Times New Roman");
+        FileOutputStream fos = new FileOutputStream(path);
+        doc.write(fos);
+
+        System.out.println("Appended successfully!");
+
+        doc.write(fos);
+
+this is to append a word file, use input stream to read then write then save with output stream
